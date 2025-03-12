@@ -24,7 +24,7 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "your-default-secret-key")
 
 # Initialize CORS for React frontend
-CORS(app, origins="http://localhost:3000", supports_credentials=True)
+CORS(app)
 
 # Initialize OAuth for Auth0
 auth0_domain = os.environ.get("AUTH0_DOMAIN")
