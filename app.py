@@ -58,6 +58,12 @@ openaiclient = OpenAI(
 )
 
 
+@app.route("/debug-env")
+def debug_env():
+    return {
+        "MONGO_USER": os.getenv("MONGO_USER"),
+        "PASSWORD": os.getenv("PASSWORD")
+    }
 # ------------------- AUTH0 LOGIN -------------------
 
 
@@ -71,12 +77,11 @@ def callback():
 
     session["user_info"] = user_info
 
-    return redirect("http://localhost:3000")
+    return redirect("/")
 
 
 # New API route to sync user data (POST)
 @app.route("/api/sync-user", methods=["POST"])
-@cross_origin(origins="http://localhost:3000", supports_credentials=True)
 def sync_user():
     # Get the user data from the request
     data = request.json
@@ -656,4 +661,4 @@ def filter_experiences():
 
 
 if __name__ == '__main__':
-    app.run(port=46725, debug=True)
+    app.run(port=46725)
