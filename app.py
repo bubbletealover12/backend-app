@@ -77,7 +77,7 @@ def callback():
 
     session["user_info"] = user_info
 
-    return redirect("/")
+    return redirect("http://localhost:3000")
 
 
 # New API route to sync user data (POST)
