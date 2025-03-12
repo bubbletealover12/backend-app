@@ -40,8 +40,8 @@ oauth.register(
 )
 
 # Connect to MongoDB
-USER = os.environ.get('MONGO_USER')
-PASSWORD = os.environ.get('PASSWORD')
+USER = os.environ.get('MONGO_USER').strip("\"")
+PASSWORD = os.environ.get('PASSWORD').strip("\"")
 uri = (
     f"mongodb+srv://{USER}:{PASSWORD}@capstone.fw3b6.mongodb.net/?"
     "retryWrites=true&w=majority&appName=Capstone"
