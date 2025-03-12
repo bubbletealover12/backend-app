@@ -77,7 +77,7 @@ def callback():
 
     session["user_info"] = user_info
 
-    return redirect("https://frontend-main.osc-fr1.scalingo.io")
+    return redirect("http://frontend-main.osc-fr1.scalingo.io")
 
 
 # New API route to sync user data (POST)
